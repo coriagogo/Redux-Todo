@@ -5,7 +5,7 @@ import {
 
 const initialState ={
     todos: [
-        { text: 'todo', complete: false, id: 0 }
+        { text: 'todo', complete: false, id: 1 }
     ]
 }
 

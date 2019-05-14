@@ -24,7 +24,7 @@ class TodoList extends React.Component {
     }  
   
     toggleComplete = id => {
-      this.props.toggleTodo(id);
+      this.props.toggleComplete(id);
     };
   
     // removeCompleted = () => {
@@ -48,12 +48,13 @@ class TodoList extends React.Component {
   
             <form onSubmit={this.addTodo}>
               <input  
+                tpe="text"
                 onChange={this.updateNewTodo}
                 placeholder="new todo"
                 value={this.state.newTodo}
               />
             </form>           
-            <button className="clear-btn" onClick={this.removeCompleted}>Clear Completed</button>
+            {/* <button className="clear-btn" onClick={this.removeCompleted}>Clear Completed</button> */}
           </div>
         </React.Fragment>
       );
