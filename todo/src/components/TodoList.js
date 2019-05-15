@@ -15,9 +15,7 @@ class TodoList extends React.Component {
       });
     }
   
-    addTodo = e => {
-        console.log('addTodo activated');
-        console.log(this.props);
+    addTodo = e => {        
       e.preventDefault();
       this.props.addTodo(
         this.state.newTodo
@@ -26,14 +24,11 @@ class TodoList extends React.Component {
     }  
   
     toggleComplete = id => {
-      this.props.toggleComplete(id);
-      console.log(this.props.toggleComplete(id));
+      this.props.toggleComplete(id);      
     };
   
-    // removeCompleted = () => {
-    //   this.setState({
-    //     newTodo: this.state.newTodo.filter(value => !value.complete)
-    //   })
+    // deleteComplete = complete => {
+    //   this.props.deleteComplete(complete);
     // }
   
     render() {
@@ -42,10 +37,9 @@ class TodoList extends React.Component {
           <div className="todo-list">
             {this.props.todos &&
               this.props.todos.map(todo => (
-                <h4 onClick={() => this.toggleComplete(todo.id)}
-                key={todo.id}>
+                <h4 onClick={() => this.toggleComplete(todo.id)} key={todo.id}>
                   {todo.text}
-                  {todo.toggleComplete && <i class="fas fa-check" />}
+                  {todo.complete && <i className="fas fa-check" />}
                 </h4>
               ))}
   
@@ -57,7 +51,7 @@ class TodoList extends React.Component {
                 value={this.state.newTodo}
               />
             </form>           
-            {/* <button className="clear-btn" onClick={this.removeCompleted}>Clear Completed</button> */}
+            {/* <button className="clear-btn" onClick={this.deleteCompleted}>Clear Completed</button> */}
           </div>
         </React.Fragment>
       );

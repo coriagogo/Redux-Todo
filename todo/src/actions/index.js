@@ -1,5 +1,6 @@
 export const NEW_TODO = 'NEW_TODO';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+// export const DELETE_COMPLETE = 'DELETE_COMPLETE';
 
 export const addTodo = todo => {
     return {
@@ -14,3 +15,10 @@ export const toggleComplete = id => {
         payload: id
     };
 };
+
+// export const deleteComplete = id => {
+//     return {
+//         type: DELETE_COMPLETE,
+//         payload: id
+//     };
+// };

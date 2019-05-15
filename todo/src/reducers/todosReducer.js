@@ -1,6 +1,7 @@
 import {
     NEW_TODO, 
-    TOGGLE_COMPLETE
+    TOGGLE_COMPLETE, 
+    // DELETE_COMPLETE
 } from '../actions';
 
 const initialState ={
@@ -25,6 +26,7 @@ function todosReducer(state = initialState, action) {
             return {
                 ...state,
                 todos: state.todos.map(todo => {
+                    console.log(todo);
                     if(todo.id === action.payload) {
                         return {
                             ...todo,
@@ -34,6 +36,8 @@ function todosReducer(state = initialState, action) {
                     return todo;
                 })
             }
+
+        
         default:
         return state;
     }
