@@ -16,6 +16,8 @@ class TodoList extends React.Component {
     }
   
     addTodo = e => {
+        console.log('addTodo activated');
+        console.log(this.props);
       e.preventDefault();
       this.props.addTodo(
         this.state.newTodo
@@ -25,6 +27,7 @@ class TodoList extends React.Component {
   
     toggleComplete = id => {
       this.props.toggleComplete(id);
+      console.log(this.props.toggleComplete(id));
     };
   
     // removeCompleted = () => {
@@ -42,13 +45,13 @@ class TodoList extends React.Component {
                 <h4 onClick={() => this.toggleComplete(todo.id)}
                 key={todo.id}>
                   {todo.text}
-                  {todo.toggleTodo && <i class="fas fa-check" />}
+                  {todo.toggleComplete && <i class="fas fa-check" />}
                 </h4>
               ))}
   
             <form onSubmit={this.addTodo}>
               <input  
-                tpe="text"
+                type="text"
                 onChange={this.updateNewTodo}
                 placeholder="new todo"
                 value={this.state.newTodo}

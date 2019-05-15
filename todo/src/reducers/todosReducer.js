@@ -5,7 +5,7 @@ import {
 
 const initialState ={
     todos: [
-        { text: 'todo', complete: false, id: 1 }
+        
     ]
 }
 
@@ -16,11 +16,12 @@ function todosReducer(state = initialState, action) {
                 ...state,
                 todos: [
                     ...state.todos,
-                    { text: action.payload, complete: false }
+                    { text: action.payload, complete: false, id: Date.now() }
                 ]
             };
 
         case TOGGLE_COMPLETE:
+        console.log(state.todos);
             return {
                 ...state,
                 todos: state.todos.map(todo => {
@@ -40,15 +41,6 @@ function todosReducer(state = initialState, action) {
 
 export default todosReducer;
 
-// export default (todos = [], action) => {
-//     switch(action.type) {
-//         case NEW_TODO:
-//             return todos.concat(action.payload);
-//         case TOGGLE_COMPLETE:
-//             todos[action.payload].complete = !todos[action.payload].complete;
-//         default:
-//         return todos;
-//     }
-// }
+
 
 
